@@ -1,0 +1,34 @@
+{
+  "notificaciones" : {
+    "not_1" : {
+      "asunto" : "asunto1",
+      "contenido" : "contenido1",
+      "visualizado" : false
+    },
+    "not_2" : {
+      "asunto" : "asunto2",
+      "contenido" : "contenido2",
+      "visualizado" : false
+    },
+    "not_3" : {
+      "asunto" : "asunto3",
+      "contenido" : "contenido 3",
+      "visualizado" : false
+    }
+  },
+  "usu_notificaciones" : {
+    "usu_2" : {
+      "id_not" : "asunto3"
+    }
+  },
+  "usuarios" : {
+    "usu_2" : {
+      "correo" : "jonatan@unal.edu.co",
+      "nombre" : "jonatan"
+    },
+    "usu_3" : {
+      "correo" : "correo3",
+      "nombre" : "nombre3"
+    }
+  }
+}

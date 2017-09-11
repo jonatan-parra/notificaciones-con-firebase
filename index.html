@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Notificaciones con Firebase</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Jonatan">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/toastr.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1> Notificaciones <small>Usando Firebase</small> </h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			<form role="form" id="form_notificacion">
+				<div class="form-group">
+					<label for="input_correo" name="correo">Correo</label>
+					<input class="form-control" id="input_correo" type="email" required>
+				</div>
+
+				<div class="form-group"> 
+					<label for="input_asunto">Asunto</label>
+					<input class="form-control" id="input_asunto" type="text" required>
+				</div>
+
+				<div class="form-group"> 
+					<label for="input_contenido">Contenido</label>
+					<input class="form-control" id="input_contenido" type="text" required>
+				</div>
+
+				<button type="submit" class="btn btn-default">Enviar notificación</button>
+			</form>
+		</div>
+		<div class="col-md-7">
+		<h1>Lista de notificaciones</h1>
+		<table class="table table-hover">
+		  <thead>
+		    <tr>
+		      <th>Correo</th>
+		      <th>Asunto</th>
+		      <th>Contenido</th>
+		      <th>Estado</th>
+		    </tr>
+		  </thead>
+		  <tbody id="tbody_tabla_notificaciones">  </tbody>
+		</table>
+		</div>
+	</div>
+</div>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"> </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/toastr.min.js"></script>
+  </body>
+</html>
