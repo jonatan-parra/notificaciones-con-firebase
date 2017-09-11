@@ -20,7 +20,7 @@
 
   // Sincronizar cambios lista
   dbRefList.orderByKey().on('child_changed', snap =>{
-    console.log("Key de firebase ");
+    //console.log("Key de firebase ");
     $('#'+snap.key).remove();
     addFila(snap);
   });
@@ -33,12 +33,18 @@
 
   function addFila(snap) {
   	notificacion = snap.val();
-  	console.log("valor: " + notificacion.asunto);
-  	$("#tbody_tabla_notificaciones").append("<tr id='" + snap.key + "'>" + 
+  //	console.log("valor: " + notificacion.asunto);
+  	if (notificacion.visualizado == true){
+  		campo_visualizado = "<button type='button' class='btn btn-default btn_visualizar'> <span class='glyphicon glyphicon-check'></span> </button>";
+  	} else {
+  		campo_visualizado = "<button type='button' class='btn btn-default btn_visualizar'> <span class='glyphicon glyphicon-chevron-left'>Ver</span> </button>";
+  	}
+
+  	$("#tbody_tabla_notificaciones").append("<tr class='ntf_visualizar' id='" + snap.key + "'>" + 
   		"<td class='td_usuario'>" + notificacion.usuario + "</td>"+ 
-  		"<td class='td_asunto'>" + notificacion.asunto + "</td>" +
-  		"<td class='td_contenido'>" + notificacion.contenido + "</td>" +
-  		"<td class='td_visualizado'>" + notificacion.visualizado + "</td>" +	
+  		"<td>" + notificacion.asunto + "</td>" +
+  		"<td>" + notificacion.contenido + "</td>" +
+  		"<td>" + campo_visualizado + "</td>" +	
   		"</tr>");
 
   	if (notificacion.visualizado == false){
@@ -73,7 +79,7 @@
 	    correo: correo1,
 	    nombre: nombre1
 	  });
-	  console.log(ref_id);
+	 // console.log(ref_id);
   }
 
   // Obtiene los datos para crear un nuevo archivo
@@ -91,6 +97,8 @@
 	  });
 	});
 
+
+
   //addNotificacion("asunto3", "contenido 3", "jonatan@unal.edu.co" )
   function addNotificacion(asunto, contenido, id_usu) {
 	  firebase.database().ref('notificaciones').push().set({
@@ -101,5 +109,15 @@
 	  });
   }
 
+  $('.ntf_visualizar').click(function(){
+		console.log("visualizar");
+	    var valores="";
+	    $(this).parents("tr").find(".td_usuario").each(function(){
+	        valores+=$(this).html()+"\n";
+	    });
+	    alert(valores);
+	});
+
 }());
 
+	
